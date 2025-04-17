@@ -3,9 +3,8 @@
 let arr1 = [2, 3, 4, 5];
 let i = 0;
 let res = 1;
-while (i<arr1.length) {
+for (let i of arr1) {
     res *= arr1[i];
-    i++;
 }
 console.log(res); 
 
@@ -37,8 +36,8 @@ console.log(randArray(5));
 // ____task 4____
 
 function raiseToDegree(a,b){
-    let res = a**=b
-    return res;
+    return a**b
+
 };
 
 let a = parseFloat(prompt("Введіть перше число"));
