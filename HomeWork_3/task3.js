@@ -37,7 +37,6 @@ console.log(randArray(5));
 
 function raiseToDegree(a,b){
     return a**b
-
 };
 
 let a = parseFloat(prompt("Введіть перше число"));
