@@ -50,7 +50,7 @@ class Student extends Person {
 const stud1 = new Student("Petro", "Petrenko", 2015);
 console.log(stud1.showFullName("Petrovych")); 
 console.log("Current course: " + stud1.showCourse()); 
-*/
+
 // *************task 4*************
 class Worker {
     #experience = 1.2;
@@ -70,15 +70,15 @@ class Worker {
     }
     set experience(value){
         if (typeof value !== "number") {
-            console.log("Experience should be a number");
+            console.log(this.fullName + " - Experience should be a number");
             return;
         }
         if (isNaN(value)) {
-            console.log("Experience should be a number");
+            console.log(this.fullName + " - Experience should be a number");
             return;
         }
         if (!isFinite(value)) {
-            console.log("Experience should be a number");
+            console.log(this.fullName + " - Experience should be a number");
             return;
         }
         this.#experience = value;
@@ -103,5 +103,5 @@ function sortedWorkers(workers) {
     
 console.log("Sorted workers by experience:");
 console.log(sortedWorkers([worker1, worker2, worker3]));
-// */
+*/
 // *************task 5*************
