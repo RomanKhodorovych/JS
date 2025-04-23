@@ -1,5 +1,5 @@
 // *************task 1*************
-/*
+
 function calcRectangleArea(width, height) {
 
   try {
@@ -48,7 +48,7 @@ catch (error) {
 }
 
 checkAge();
-*/
+
 // *************task 3*************
 class MonthException extends Error {
     constructor(message) {
@@ -79,6 +79,30 @@ console.log(showMonthName(5));
 console.log(showMonthName(14)); 
 
 // *************task 4*************
-function showUser(id){
-    
-}
+
+ let users = [ {id: 7}, {id: 44}, {id: 22} ];
+ function showUser(id){
+    if (id < 0) {
+        throw new Error("ID must not be negative: " + id);
+    }
+    let user = users.find(user => user.id === id);
+    if (!user) {
+        throw new Error("User with ID " + id + " not found");
+    }
+    return user;
+ }
+
+ function showUsers(ids){
+    let result = [];
+    for (let i = 0; i < ids.length; i++) {
+        try {
+            let user = showUser(ids[i]);
+            result.push(user);
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+    return result;
+ }
+
+ console.log(showUsers([7, -12, 44, 22]));
