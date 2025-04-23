@@ -1,5 +1,5 @@
 // *************task 1*************
-/*
+
 function propsCount(currentObject){
 return  Object.keys(currentObject).length;    
 }
@@ -103,5 +103,78 @@ function sortedWorkers(workers) {
     
 console.log("Sorted workers by experience:");
 console.log(sortedWorkers([worker1, worker2, worker3]));
-*/
+
 // *************task 5*************
+class GeometricFigure{
+    getArea(){};
+    toString(){
+        return Object.getPrototypeOf(this).constructor.name;
+    }    
+}
+class Triangle extends GeometricFigure{
+    constructor(a, b, c){
+        super();
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+    getArea(){
+        if(this.a < 0 || this.b < 0 || this.c < 0){
+            console.log("Triangle sides should be positive");
+            return 0;
+        }
+        else if(typeof this.a !== "number" || typeof this.b !== "number" || typeof this.c !== "number"){
+            console.log("Triangle sides should be numbers");
+            return 0;
+        }
+        let p = (this.a + this.b + this.c) / 2;
+        return +(Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c))).toFixed(2);
+    }
+}
+class Square extends GeometricFigure{
+    constructor(a){
+        super();
+        this.a = a;
+    }
+    getArea(){
+        if(this.a <= 0){
+            console.log("Square side should be positive");
+            return 0;
+        }
+        else if(typeof this.a !== "number"){
+            console.log("Square side should be a number");
+            return 0;
+        }
+        return +(this.a * this.a).toFixed(2);
+    }
+}
+class Circle extends GeometricFigure{
+    constructor(r){
+        super();
+        this.r = r;
+    }
+    getArea(){
+        if(this.r <= 0){
+            console.log("Circle radius should be positive");
+            return 0;
+        }
+        else if(typeof this.r !== "number"){
+            console.log("Circle radius should be a number");
+            return 0;
+        }
+        return +((Math.PI * this.r * this.r).toFixed(2));
+    }
+}
+
+function handleFigures(figures){
+    let totalArea = 0;
+    figures.forEach(figure => {
+        console.log(`Geometric figure: ${figure.toString()} - area: ${figure.getArea()}`);
+        totalArea += figure.getArea();
+    });
+    console.log(`Total area of all figures: ${totalArea}`);
+    return totalArea;
+}
+
+const figures = [new Triangle(4, 5), new Square(7), new Circle(5)];
+console.log(handleFigures(figures));
