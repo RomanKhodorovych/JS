@@ -50,7 +50,7 @@ class Student extends Person {
 const stud1 = new Student("Petro", "Petrenko", 2015);
 console.log(stud1.showFullName("Petrovych")); 
 console.log("Current course: " + stud1.showCourse()); 
-
+*/
 // *************task 4*************
 class Worker {
     #experience = 1.2;
@@ -91,10 +91,7 @@ function sortedWorkers(workers) {
     return workers
       .slice()
       .sort((a, b) => a.experience - b.experience)
-      .map(worker => ({
-        fullName: worker.fullName,
-        salary: worker.showSalaryWithExperience()
-      }));
+      .map(worker => `${worker.fullName}: ${worker.showSalaryWithExperience()}`);
   }
 
     let worker1 = new Worker("John Johnson", 20, 23);
@@ -106,5 +103,5 @@ function sortedWorkers(workers) {
     
 console.log("Sorted workers by experience:");
 console.log(sortedWorkers([worker1, worker2, worker3]));
-*/
+// */
 // *************task 5*************
