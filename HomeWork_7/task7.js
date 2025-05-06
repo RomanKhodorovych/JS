@@ -90,7 +90,6 @@ function getWindowSize(){
     let width = window.innerWidth;
     let height = window.innerHeight;
   document.getElementById("size").innerHTML = `Width: ${width}px, Height: ${height}px`;
-  console.log(document.getElementById("size").innerHTML)
   }
  window.addEventListener("resize", getWindowSize);
 
