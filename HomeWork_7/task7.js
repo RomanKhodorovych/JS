@@ -3,16 +3,16 @@
 const newWin = window.open("", "", "width=300,height=300,resizable=yes");
 
 setTimeout(() => {
-  newWin.resizeTo(500, 500);
-}, 2000);
+    newWin.resizeTo(500, 500);
+    setTimeout(() => {
+      newWin.moveTo(200, 200);
+      setTimeout(() => {
+        newWin.close();
+      }, 2000);
+    }, 2000);
+  }, 2000);
+  
 
-setTimeout(() => {
-  newWin.moveTo(200, 200);
-}, 4000);
-
-setTimeout(() => {
-  newWin.close();
-}, 6000);
 
 // ************** task 2 ************** //
 
@@ -86,4 +86,11 @@ const message = document.getElementById("message");
 
 // ************** task 6 ************** //
   
+function getWindowSize(){
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+  document.getElementById("size").innerHTML = `Width: ${width}px, Height: ${height}px`;
+  console.log(document.getElementById("size").innerHTML)
+  }
+ window.addEventListener("resize", getWindowSize);
 
