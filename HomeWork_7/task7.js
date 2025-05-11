@@ -26,30 +26,47 @@ btn.addEventListener("click", function(){
 
 // ************** task 3 ************** //
 
-["click", "mouseover", "mouseout"].forEach(eventType => {
-    let link = document.querySelector("#yellow");
-    let buttons = document.querySelectorAll("button");
-  
-    link.addEventListener(eventType, function(event) {
-      if (event.type === "mouseover" && event.target.id === "yellow") {
-        document.body.style.backgroundColor = "yellow";
-      } else if (event.type === "mouseout" && event.target.id === "yellow") {
-        document.body.style.backgroundColor = "white";
-      }
+  const link = document.querySelector("#yellow");
+  const blueBtn = document.querySelector("#blue");
+  const pinkBtn = document.querySelector("#pink");
+  const brownBtn = document.querySelector("#brown");
+
+  if (link){
+    link.addEventListener("mouseover", function() {
+      document.body.style.backgroundColor = "yellow";
     });
-  
-    buttons.forEach(button => {
-      button.addEventListener(eventType, function(event) {
-        if (event.type === "click" && event.target.id === "blue") {
-            document.body.style.backgroundColor = "blue";
-        } else if (event.type === "click" && event.target.id === "pink") {
-            document.body.style.backgroundColor = "pink";
-        } else if (event.type === "click" && event.target.id === "brown") {
-            document.body.style.backgroundColor = "brown";
-        }
+    link.addEventListener("mouseout", function() {
+      document.body.style.backgroundColor = "white";
+    });
+  };
+
+  if (blueBtn){
+    blueBtn.addEventListener("click", function() {
+      document.body.style.backgroundColor = "blue";
+    });
+  }
+  if (pinkBtn){
+    pinkBtn.addEventListener("dblclick", function() {
+      document.body.style.backgroundColor = "pink";
+    });
+  }
+  if (brownBtn){
+    let timer;
+    const duration = 1000; // 1 second
+    brownBtn.addEventListener("mousedown", function() {
+        timer = setTimeout(() => {
+          document.body.style.backgroundColor = "brown";
+        }, duration);
       });
+    brownBtn.addEventListener("mouseup", function() {
+     clearTimeout(timer)
     });
-  });
+    brownBtn.addEventListener("mouseout", function() {
+      clearTimeout(timer)
+     });
+  }
+  
+
 
 // ************** task 4 ************** //
 
