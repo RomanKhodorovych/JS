@@ -32,3 +32,49 @@ function mul(...nums) {
 
 console.log(mul(1, "str", 2, 3, true));   // Output: 6
 console.log(mul(null, "str", false, true)); // Output: 0
+
+// ************** task 4 ************** //
+// TODO: fix the code
+let server = {
+  data: 0,
+  convertToString: function (callback) {
+     callback((function () {
+        return this.data + "";
+     }).bind(this));
+  }
+};
+let client = {
+  server: server,
+  result: "",
+  calc: function (data) {
+     this.server.data = data;
+     this.server.convertToString(this.notification());
+  },
+  notification: function () {
+     return (function (callback) {
+        this.result = callback();
+     }).bind(this);
+  }
+};
+client.calc(123);
+console.log(client.result); // "123"
+console.log(typeof client.result); // "string"
+
+
+
+// ************** task 5 ************** //
+
+function mapBuilder(keysArray, valuesArrays){
+  let newMap = new Map();
+  for (let i = 0; i < keysArray.length; i++) {
+    newMap.set(keysArray[i], valuesArrays[i]);
+  }
+  return newMap;
+};
+
+let keys = [1, 2, 3, 4];
+let values = ["div", "span", "b", "i"];
+let map = mapBuilder(keys, values);
+console.log(map.size); // 4
+console.log(map.get(2)); // "span"
+
