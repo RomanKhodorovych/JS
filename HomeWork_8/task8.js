@@ -38,9 +38,9 @@ console.log(mul(null, "str", false, true)); // Output: 0
 let server = {
   data: 0,
   convertToString: function (callback) {
-     callback((function () {
+     callback((() =>{
         return this.data + "";
-     }).bind(this));
+     }));
   }
 };
 let client = {
@@ -51,16 +51,14 @@ let client = {
      this.server.convertToString(this.notification());
   },
   notification: function () {
-     return (function (callback) {
+     return ( (callback) =>{
         this.result = callback();
-     }).bind(this);
+     });
   }
 };
 client.calc(123);
 console.log(client.result); // "123"
 console.log(typeof client.result); // "string"
-
-
 
 // ************** task 5 ************** //
 
