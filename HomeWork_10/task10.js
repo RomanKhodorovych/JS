@@ -1,4 +1,4 @@
-// ************** task 1 ************** //
+
 
 const http = require('http');
 const os = require('node:os');
@@ -18,10 +18,8 @@ http.createServer((request, responce) => {
     responce.write(`<p>OS Type: ${osType}</p>`);
     responce.write(`<p>Sysyem work time: ${workTime}</p>`);
     responce.write(`<p>Current work directory: ${workDirectory}</p>`);
-    responce.write(`<p>erver file name: ${serverFileName}</p>`);
+    responce.write(`<p>Server file name: ${serverFileName}</p>`);
     responce.end();
 }).listen(5000);
 
 console.log('Server is listening at http://localhost:5000');  
-
-// ************** task 2 ************** //
