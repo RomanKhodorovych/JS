@@ -1,9 +1,6 @@
-
-
 const http = require('http');
 const os = require('node:os');
 const path = require('path');
-
 const userNamme = os.userInfo().username;
 const osType = os.type();
 const workTime = Math.floor(os.uptime()/60);
