@@ -1,6 +1,4 @@
 
-let date = new Date();
-
 function sayHi(username, date) {
     const time = date.getHours();
     switch (true) {
